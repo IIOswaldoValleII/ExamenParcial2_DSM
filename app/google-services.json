@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "816071511153",
+    "project_id": "examenparcial2-dsm",
+    "storage_bucket": "examenparcial2-dsm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816071511153:android:ddbe2705d46b44907b5fd0",
+        "android_client_info": {
+          "package_name": "com.example.examenparcial2_dsm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816071511153-6edmmege565lq05l17pfutumrk5259mn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.examenparcial2_dsm",
+            "certificate_hash": "9cf3cc88d5bfdc25f5f97dc2eefdac2bc61ad55a"
+          }
+        },
+        {
+          "client_id": "816071511153-u38ha1lbrqjd88ef0a3kagl49jo2flup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBYtU7Pp-Yc_d4KkZ3fsSfXcSdnVni2yw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816071511153-u38ha1lbrqjd88ef0a3kagl49jo2flup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
