@@ -15,16 +15,26 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import com.google.firebase.database.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
+    private EditText TextNombre;
     private EditText TextEmail;
     private EditText TextPassword;
     private Button BtnRegistrar;
 
+    private String Nombre = "";
     private String Correo = "";
     private String Contraseña = "";
 
     FirebaseAuth fAuth;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference DBBreferencia;
+
 
 
 
@@ -34,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fAuth = FirebaseAuth.getInstance();
+        DBBreferencia = FirebaseDatabase.getInstance().getReference();
+        TextNombre = (EditText) findViewById(R.id.txTNombre);
     TextEmail = (EditText) findViewById(R.id.txtEmail);
     TextPassword = (EditText) findViewById(R.id.txtPassword);
     BtnRegistrar = (Button) findViewById(R.id.btnRegistrar);
@@ -43,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v) {
             Correo = TextEmail.getText().toString();
             Contraseña = TextPassword.getText().toString();
+            Nombre = TextNombre.getText().toString();
+
             if (!Correo.isEmpty() && !Contraseña.isEmpty()){
                 if (Contraseña.length() >= 6){
                     RegistrarUsuario();
@@ -60,11 +74,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void RegistrarUsuario(){
-fAuth.createUserWithEmailAndPassword(Correo, Contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    fAuth.createUserWithEmailAndPassword(Correo, Contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
     @Override
     public void onComplete(@NonNull Task<AuthResult> task) {
         if(task.isSuccessful()){
-            Toast.makeText(MainActivity.this, "Usuario registrado correctamente", Toast.LENGTH_SHORT).show();
+            Map<String, Object> map = new HashMap<>();
+            map.put( "Nombre", Nombre);
+            map.put( "Email", Correo);
+            map.put ( "Password", Contraseña);
+
+            String id = fAuth.getCurrentUser().getUid();
+
+            DBBreferencia.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task2) {
+                if (task2.isSuccessful()) {
+                    Toast.makeText(MainActivity.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(MainActivity.this, "Error de registro", Toast.LENGTH_SHORT).show();
+                }
+                }
+            });
+
+
         }
         else{
             Toast.makeText(MainActivity.this, "Ocurrio un error", Toast.LENGTH_SHORT).show();
