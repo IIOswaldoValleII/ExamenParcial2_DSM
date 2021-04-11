@@ -59,6 +59,14 @@ public class PrincipalActivity extends AppCompatActivity {
         }
     });
 
+    btnCarrito.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent( PrincipalActivity.this, CarritoActivity.class);
+            startActivity(intent);
+        }
+    });
+
     }
 
     private void InformacionUsuario(){

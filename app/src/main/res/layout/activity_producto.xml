@@ -4,4 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductoActivity"/>
+    tools:context=".ProductoActivity">
+
+    <TextView
+        android:id="@+id/txtNombreProducto"
+        android:layout_width="335dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/adamina"
+        android:textAlignment="center"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <Button
+        android:id="@+id/btnAgregarCarrito"
+        android:layout_width="191dp"
+        android:layout_height="58dp"
+        android:text="Agregar al carrito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editCantidad"
+        app:layout_constraintVertical_bias="0.327" />
+
+    <TextView
+        android:id="@+id/txtDescripcion"
+        android:layout_width="321dp"
+        android:layout_height="183dp"
+        android:textAlignment="gravity"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreProducto"
+        app:layout_constraintVertical_bias="0.054" />
+
+    <TextView
+        android:id="@+id/txtPrecio"
+        android:layout_width="324dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="36dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/editCantidad"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="53dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnMas"
+        android:layout_width="71dp"
+        android:layout_height="47dp"
+        android:text="-"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregarCarrito"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintStart_toEndOf="@+id/editCantidad"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
+        app:layout_constraintVertical_bias="0.404" />
+
+    <Button
+        android:id="@+id/btnMenos"
+        android:layout_width="81dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="11dp"
+        android:text="+"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAgregarCarrito"
+        app:layout_constraintEnd_toStartOf="@+id/editCantidad"
+        app:layout_constraintHorizontal_bias="0.797"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
+        app:layout_constraintVertical_bias="0.398" />
+</androidx.constraintlayout.widget.ConstraintLayout>
