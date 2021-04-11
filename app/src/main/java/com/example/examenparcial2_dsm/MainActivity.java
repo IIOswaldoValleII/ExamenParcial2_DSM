@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     private String Nombre = "";
     private String Correo = "";
     private String Contraseña = "";
+    private boolean flag = false;
+    private String usuariotomado = "";
+    private int numero = 1;
 
     FirebaseAuth fAuth;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (!Correo.isEmpty() && !Contraseña.isEmpty()){
                 if (Contraseña.length() >= 6){
+
                     RegistrarUsuario();
                 }
                 else{
@@ -79,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
     public void onComplete(@NonNull Task<AuthResult> task) {
         if(task.isSuccessful()){
             Map<String, Object> map = new HashMap<>();
+
+
+            map.put("Codigo", numero++);
             map.put( "Nombre", Nombre);
             map.put( "Email", Correo);
             map.put ( "Password", Contraseña);
@@ -105,4 +113,30 @@ public class MainActivity extends AppCompatActivity {
 });
 
     }
+
+  /*  private void VerificacionUsuario(){
+        DBBreferencia.child("Usuarios").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot ID : snapshot.getChildren()){
+                   usuariotomado = ID.child("Nombre").getValue(String.class);
+
+                    Toast.makeText(MainActivity.this, "El usuario tomado es: " + usuariotomado, Toast.LENGTH_SHORT).show();
+           /*     if (Nombre == usuariotomado){
+                    Toast.makeText(MainActivity.this, usuariotomado, Toast.LENGTH_SHORT).show();
+
+                }else if(Nombre != usuariotomado){
+                    //RegistrarUsuario();
+                    Toast.makeText(MainActivity.this, "El usuario no esta usado", Toast.LENGTH_SHORT).show();
+                }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }*/
 }

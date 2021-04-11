@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamenParcial2_DSM">
-        <activity android:name=".PrincipalActivity"></activity>
-        <activity android:name=".MainActivity"
+        <activity android:name=".ProductoActivity"></activity>
+        <activity android:name=".ListadoProductos" />
+        <activity android:name=".PrincipalActivity" />
+        <activity
+            android:name=".MainActivity"
             android:parentActivityName=".InicioSesion">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
