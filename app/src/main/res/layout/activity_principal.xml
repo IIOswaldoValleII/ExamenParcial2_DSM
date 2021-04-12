@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PrincipalActivity">
+    tools:context=".PrincipalActivity"
+    android:background="@drawable/gradiente"
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -27,7 +29,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnListaMedicinas"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.25"
+        android:backgroundTint="#F65D5D"
+        />
 
     <TextView
         android:id="@+id/textviewNombre"
@@ -49,7 +53,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:backgroundTint="#F65D5D"
+        />
 
     <Button
         android:id="@+id/btnListaMedicinas"
@@ -61,6 +67,8 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCarrito"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.093"
+        android:backgroundTint="#F65D5D"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

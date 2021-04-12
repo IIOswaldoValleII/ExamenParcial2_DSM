@@ -58,8 +58,7 @@ public class ProductoActivity extends AppCompatActivity {
         txtPrecio = (TextView) findViewById(R.id.txtPrecio);
         txtCantidad = (EditText) findViewById(R.id.editCantidad);
         txtnuevacantidad = (TextView) findViewById(R.id.txtcantidad);
-        Mas = (Button) findViewById(R.id.btnMas);
-        Menos = (Button) findViewById(R.id.btnMenos);
+
         AgregarCarrito = (Button) findViewById(R.id.btnAgregarCarrito);
 
 

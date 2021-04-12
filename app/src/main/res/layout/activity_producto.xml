@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProductoActivity">
+    tools:context=".ProductoActivity"
+    android:background="@drawable/gradiente"
+    >
 
     <TextView
         android:id="@+id/txtNombreProducto"
@@ -28,7 +30,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editCantidad"
-        app:layout_constraintVertical_bias="0.327" />
+        app:layout_constraintVertical_bias="0.327"
+        android:backgroundTint="#F65D5D"
+        />
 
     <TextView
         android:id="@+id/txtDescripcion"
@@ -70,34 +74,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnMas"
-        android:layout_width="71dp"
-        android:layout_height="47dp"
-        android:text="-"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAgregarCarrito"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.343"
-        app:layout_constraintStart_toEndOf="@+id/editCantidad"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
-        app:layout_constraintVertical_bias="0.404" />
-
-    <Button
-        android:id="@+id/btnMenos"
-        android:layout_width="81dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="11dp"
-        android:text="+"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAgregarCarrito"
-        app:layout_constraintEnd_toStartOf="@+id/editCantidad"
-        app:layout_constraintHorizontal_bias="0.797"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
-        app:layout_constraintVertical_bias="0.398" />
+        app:layout_constraintVertical_bias="0.0"
+        android:background="@drawable/edit_text_estilo"
+        />
 
     <TextView
         android:id="@+id/txtcantidad"

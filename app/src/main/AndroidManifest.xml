@@ -16,6 +16,7 @@
         <activity android:name=".ProductoActivity" />
         <activity android:name=".ListadoProductos" />
         <activity android:name=".PrincipalActivity" />
+        <activity android:name=".InicioSesion" />
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".InicioSesion">
@@ -23,7 +24,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".InicioSesion" />
         </activity>
-        <activity android:name=".InicioSesion">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

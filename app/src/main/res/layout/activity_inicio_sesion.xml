@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InicioSesion">
+    tools:context=".InicioSesion"
+    android:background="@drawable/gradiente"
+    >
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -18,7 +20,9 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116" />
+        app:layout_constraintVertical_bias="0.116"
+        android:background="@drawable/edit_text_estilo"
+        />
 
 
     <EditText
@@ -33,7 +37,9 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail"
-        app:layout_constraintVertical_bias="0.14" />
+        app:layout_constraintVertical_bias="0.14"
+        android:background="@drawable/edit_text_estilo"
+        />
 
     <Button
         android:id="@+id/btnIniciarSesion"
@@ -44,7 +50,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintVertical_bias="0.16"
+        android:backgroundTint="#F65D5D"
+        />
 
     <Button
         android:id="@+id/btnRegistro"
@@ -55,5 +63,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnIniciarSesion"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.202"
+        android:backgroundTint="#F65D5D"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
