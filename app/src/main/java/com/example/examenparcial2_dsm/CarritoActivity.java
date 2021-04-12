@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -20,14 +21,18 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CarritoActivity extends AppCompatActivity {
 
     private ListView listacarrito;
     private TextView total;
+    private Button precio;
+    private Button Comprar;
     private FirebaseAuth fAuth;
-    ArrayList<Productos> arrayListCarrito;
-    ArrayAdapter<Productos> arrayAdapterCarrito;
+    ArrayList<ProductosCarrito> arrayListCarrito;
+    ArrayAdapter<ProductosCarrito> arrayAdapterCarrito;
     FirebaseDatabase miBase;
     DatabaseReference DBBReference;
 
@@ -42,19 +47,22 @@ public class CarritoActivity extends AppCompatActivity {
         String id = fAuth.getCurrentUser().getUid();
 
 
-
+        precio = (Button) findViewById(R.id.btnPrecio);
+        Comprar = (Button) findViewById(R.id.btnFactura);
         listacarrito = (ListView) findViewById(R.id.lvCarrito);
         total = (TextView) findViewById(R.id.txtTotal);
         setTitle("Lista de productos del carrito");
 
         arrayListCarrito = new ArrayList<>();
-        arrayAdapterCarrito = new ArrayAdapter<Productos>(CarritoActivity.this, android.R.layout.simple_list_item_1, arrayListCarrito);
+        arrayAdapterCarrito = new ArrayAdapter<ProductosCarrito>(CarritoActivity.this, android.R.layout.simple_list_item_1, arrayListCarrito);
         listacarrito.setAdapter(arrayAdapterCarrito);
 
         listacarrito.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long i) {
                 DBBReference.child("Usuarios").child(id).child("carrito").child(arrayListCarrito.get(position).id).removeValue();
+
+
                 return true;
             }
         });
@@ -64,14 +72,15 @@ public class CarritoActivity extends AppCompatActivity {
             if (snapshot.hasChildren()){
                 arrayListCarrito.clear();
                 for (DataSnapshot token: snapshot.getChildren()){
-                    String id = token.getKey();
-                    DBBReference.child("Medicinas").child(id).addValueEventListener(new ValueEventListener() {
+                    String idmedicina = token.getKey();
+                    DBBReference.child("Usuarios").child(id).child("carrito").child(idmedicina).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                       Productos medicina = snapshot.getValue(Productos.class);
+                       ProductosCarrito medicina = snapshot.getValue(ProductosCarrito.class);
                        arrayListCarrito.add(medicina);
                        arrayAdapterCarrito.notifyDataSetChanged();
-                            CalcularPrecio();
+
+
                         }
 
                         @Override
@@ -96,13 +105,27 @@ public class CarritoActivity extends AppCompatActivity {
 
             }
         });
+            precio.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+
+        CalcularPrecio();
+
+    }
+        });
+        Comprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+
 
     }
         private void CalcularPrecio(){
-        for (Productos medicinas: arrayListCarrito){
-            PrecioTotal = PrecioTotal + medicinas.precio;
+            for (ProductosCarrito medicinas: arrayListCarrito){
+                PrecioTotal += medicinas.precio;
 
-            total.setText("Total de compra: $"+PrecioTotal);
+                total.setText("Total de compra: $"+PrecioTotal);
         }
         }
 }

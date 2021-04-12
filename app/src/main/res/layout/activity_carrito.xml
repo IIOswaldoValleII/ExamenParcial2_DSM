@@ -36,9 +36,15 @@
             <ListView
                 android:id="@+id/lvCarrito"
                 android:layout_width="match_parent"
-                android:layout_height="480dp" >
+                android:layout_height="415dp">
 
             </ListView>
+
+            <Button
+                android:id="@+id/btnPrecio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Calcular precio" />
 
             <TextView
                 android:id="@+id/txtTotal"
@@ -62,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:text="Si desea eliminar un producto, mantenga presionado sobre el producto a eliminar"
                 android:textAlignment="center" />
+
         </LinearLayout>
     </ScrollView>
     </LinearLayout>

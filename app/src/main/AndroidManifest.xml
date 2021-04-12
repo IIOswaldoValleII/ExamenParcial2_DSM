@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.examenparcial2_dsm">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ExamenParcial2_DSM">
-        <activity android:name=".CarritoActivity"></activity>
+        <activity android:name=".ListadoReportes"></activity>
+        <activity android:name=".CarritoActivity" />
         <activity android:name=".ProductoActivity" />
         <activity android:name=".ListadoProductos" />
         <activity android:name=".PrincipalActivity" />

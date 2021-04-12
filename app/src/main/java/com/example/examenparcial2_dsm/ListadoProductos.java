@@ -38,7 +38,7 @@ public class ListadoProductos extends AppCompatActivity {
         arrayAdapter = new ArrayAdapter<Productos>(ListadoProductos.this, android.R.layout.simple_list_item_1, arrayList);
         LVlista.setAdapter(arrayAdapter);
 
-        //Evento ItemClickListener del ListView para al dar click en un item, hara una acción
+
         LVlista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

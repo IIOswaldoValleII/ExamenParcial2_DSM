@@ -22,13 +22,12 @@
         android:id="@+id/btnCerrarSesión"
         android:layout_width="153dp"
         android:layout_height="58dp"
-        android:layout_marginTop="72dp"
         android:text="Cerrar Sesión"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCompras"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btnListaMedicinas"
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/textviewNombre"
@@ -63,17 +62,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCarrito"
         app:layout_constraintVertical_bias="0.093" />
-
-    <Button
-        android:id="@+id/btnCompras"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" Ver Compras Realizadas"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnListaMedicinas"
-        app:layout_constraintVertical_bias="0.135" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
